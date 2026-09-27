@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#090707">
+<meta name="description"
+      content="ART & BOOKS Museum Pro Platform — Art, Books, Knowledge, Heritage, Digital Collections and Humanitarian Projects.">
+
+<title>ART & BOOKS — MUSEUM PRO PLATFORM</title>
+
+<style>
+:root{
+  --black:#080606;
+  --black2:#11090b;
+  --burgundy:#321016;
+  --burgundy2:#4a151e;
+  --gold:#b8944a;
+  --gold2:#d1b36a;
+  --gold3:#76591f;
+  --cream:#f2ead7;
+  --muted:#b8aa91;
+  --glass:rgba(35,12,17,.68);
+  --glass2:rgba(10,7,8,.78);
+  --border:rgba(184,148,74,.42);
+  --shadow:rgba(0,0,0,.65);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  color:var(--cream);
+  font-family:Georgia,"Times New Roman",serif;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(112,27,40,.28),transparent 34%),
+    radial-gradient(circle at 15% 60%,rgba(184,148,74,.07),transparent 28%),
+    linear-gradient(145deg,var(--black),var(--black2) 45%,#16090d);
+  overflow-x:hidden;
+}
+
+/* subtle museum texture */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.10;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      transparent 0,
+      transparent 18px,
+      rgba(184,148,74,.035) 19px,
+      transparent 20px
+    );
+  z-index:-1;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.container{
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+header{
+  padding:26px 0 10px;
+  text-align:center;
+}
+
+.brand-frame{
+  position:relative;
+  padding:30px 20px 26px;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(72,18,28,.62),
+      rgba(10,7,8,.76)
+    );
+  box-shadow:
+    0 25px 70px var(--shadow),
+    inset 0 0 35px rgba(184,148,74,.055);
+  backdrop-filter:blur(12px);
+}
+
+.brand-frame::before,
+.brand-frame::after{
+  content:"✦";
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--gold);
+  font-size:18px;
+}
+
+.brand-frame::before{left:20px;}
+.brand-frame::after{right:20px;}
+
+.brand{
+  color:var(--gold2);
+  font-size:clamp(28px,6vw,58px);
+  letter-spacing:5px;
+  font-weight:bold;
+  text-shadow:0 0 18px rgba(184,148,74,.16);
+}
+
+.subtitle{
+  margin-top:10px;
+  color:var(--cream);
+  font-size:clamp(13px,2.3vw,19px);
+  letter-spacing:4px;
+  text-transform:uppercase;
+}
+
+.tagline{
+  margin-top:12px;
+  color:var(--muted);
+  font-size:14px;
+  letter-spacing:1.5px;
+}
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero{
+  margin:24px 0 42px;
+  text-align:center;
+}
+
+.hero-panel{
+  padding:32px 20px;
+  border:1px solid rgba(184,148,74,.25);
+  border-radius:20px;
+  background:rgba(12,7,9,.60);
+  box-shadow:inset 0 0 60px rgba(90,20,30,.12);
+}
+
+.hero h1{
+  color:var(--gold2);
+  font-size:clamp(22px,4vw,38px);
+  margin-bottom:10px;
+}
+
+.hero p{
+  max-width:760px;
+  margin:auto;
+  line-height:1.7;
+  color:var(--muted);
+}
+
+/* =========================
+   SECTION
+   ========================= */
+
+section{
+  margin:48px 0;
+}
+
+.section-title{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:20px;
+}
+
+.section-title::before,
+.section-title::after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    var(--border)
+  );
+}
+
+.section-title::after{
+  background:linear-gradient(
+    90deg,
+    var(--border),
+    transparent
+  );
+}
+
+.section-title h2{
+  white-space:nowrap;
+  color:var(--gold2);
+  font-size:20px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+/* =========================
+   GRID
+   ========================= */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.card{
+  position:relative;
+  min-height:145px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(64,17,26,.60),
+      rgba(11,7,8,.82)
+    );
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.42),
+    inset 0 0 22px rgba(184,148,74,.035);
+  overflow:hidden;
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      120deg,
+      transparent 20%,
+      rgba(255,255,255,.035) 50%,
+      transparent 80%
+    );
+  transform:translateX(-100%);
+  transition:transform .55s ease;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(209,179,106,.78);
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.58),
+    0 0 22px rgba(184,148,74,.10);
+}
+
+.card:hover::after{
+  transform:translateX(100%);
+}
+
+.icon{
+  font-size:30px;
+  margin-bottom:12px;
+}
+
+.card h3{
+  color:var(--gold2);
+  font-size:18px;
+  letter-spacing:1px;
+}
+
+.card p{
+  margin-top:7px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.5;
+}
+
+/* =========================
+   FEATURED
+   ========================= */
+
+.featured{
+  grid-template-columns:repeat(2,1fr);
+}
+
+.featured .card{
+  min-height:170px;
+}
+
+/* =========================
+   PAYMENT
+   ========================= */
+
+.payment{
+  border-color:rgba(209,179,106,.58);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(75,34,18,.52),
+      rgba(12,8,7,.88)
+    );
+}
+
+.payment .icon{
+  color:var(--gold2);
+}
+
+/* =========================
+   EVENTS
+   ========================= */
+
+.events .card{
+  min-height:125px;
+}
+
+/* =========================
+   FUTURE AREA
+   ========================= */
+
+.future{
+  border:1px dashed rgba(184,148,74,.28);
+  border-radius:18px;
+  padding:22px;
+  background:rgba(10,7,8,.48);
+}
+
+.future p{
+  color:var(--muted);
+  line-height:1.7;
+  font-size:14px;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer{
+  margin-top:65px;
+  padding:30px 15px;
+  text-align:center;
+  border-top:1px solid rgba(184,148,74,.22);
+  color:var(--muted);
+  font-size:12px;
+  letter-spacing:1px;
+}
+
+.footer-gold{
+  color:var(--gold);
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media(max-width:800px){
+
+  .grid,
+  .featured{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .brand-frame::before,
+  .brand-frame::after{
+    display:none;
+  }
+}
+
+@media(max-width:560px){
+
+  .container{
+    width:94%;
+  }
+
+  .brand-frame{
+    padding:25px 15px;
+  }
+
+  .brand{
+    letter-spacing:2px;
+  }
+
+  .subtitle{
+    letter-spacing:2px;
+  }
+
+  .grid,
+  .featured{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    min-height:125px;
+  }
+
+  .section-title h2{
+    font-size:15px;
+    letter-spacing:1px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ==================================================
+     HEADER
+     ================================================== -->
+
+<header>
+  <div class="brand-frame">
+
+    <div class="brand">ART &amp; BOOKS</div>
+
+    <div class="subtitle">
+      MUSEUM PRO PLATFORM
+    </div>
+
+    <div class="tagline">
+      Art • Books • Knowledge • Heritage • Digital Collections
+    </div>
+
+  </div>
+</header>
+
+
+<!-- ==================================================
+     HERO
+     ================================================== -->
+
+<section class="hero">
+
+  <div class="hero-panel">
+
+    <h1>Welcome to the Museum Hub</h1>
+
+    <p>
+      A unified digital entrance to ART &amp; BOOKS collections,
+      museum projects, books, certificates, cultural heritage,
+      Orthodox resources, digital archives and humanitarian projects.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     MAIN PLATFORMS
+     ADD NEW MAIN PROJECTS HERE
+     ================================================== -->
+
+<section>
+
+  <div class="section-title">
+    <h2>◆ Museum Platforms</h2>
+  </div>
+
+  <div class="grid featured">
+
+    <a class="card"
+       href="https://artbookssbxenginepro.netlify.app/"
+       target="_blank"
+       rel="noopener">
+
+      <div class="icon">🏛️</div>
+      <h3>ART &amp; BOOKS ENGINE PRO</h3>
+      <p>Main ART &amp; BOOKS platform.</p>
+
+    </a>
+
+
+    <a class="card"
+       href="https://art-books-museum-engine-pro.netlify.app/"
+       target="_blank"
+       rel="noopener">
+
+      <div class="icon"></div>
+      <h3>MUSEUM ENGINE PRO</h3>
+      <p>ART &amp; BOOKS museum environment.</p>
+
+    </a>
+
+
+    <a class="card"
+       href="https://artmuseumbooksart.netlify.app/"
+       target="_blank"
+       rel="noopener">
+
+      <div class="icon"></div>
+      <h3>ART MUSEUM BOOKS ART</h3>
+      <p>Art and museum collection.</p>
+
+    </a>
+
+
+    <a class="card"
+       href="https://idyllic-otter-b4dff5.netlify.app/"
+       target="_blank"
+       rel="noopener">
+
+      <div class="icon"></div>
+      <h3>DIGITAL PLATFORM</h3>
+      <p>Additional ART &amp; BOOKS project environment.</p>
+
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     BOOKS / DIGITAL / CANVA
+     ================================================== -->
+
+<section>
+
+  <div class="section-title">
+    <h2>Books &amp; Digital Collections</h2>
+  </div>
+
+  <div class="grid">
+
+    <a class="card"
+       href="https://canva.link/u45iv62x14ap5z1"
+       target="_blank"
+       rel="noopener">
+      <div class="icon"></div>
+      <h3>CANVA COLLECTION 01</h3>
+      <p>Digital publication / collection.</p>
+    </a>
+
+
+    <a class="card"
+       href="https://canva.link/z8zjphdmse784cp"
+       target="_blank"
+       rel="noopener">
+      <div class="icon"></div>
+      <h3>CANVA COLLECTION 02</h3>
+      <p>Digital collection.</p>
+    </a>
+
+
+    <a class="card"
+       href="https://canva.link/tc3g4iao373o8gw"
+       target="_blank"
+       rel="noopener">
+      <div class="icon"></div>
+      <h3>CANVA COLLECTION 03</h3>
+      <p>Digital publication.</p>
+    </a>
+
+
+    <a class="card"
+       href="https://canva.link/0a2uhtz2j520705"
+       target="_blank"
+       rel="noopener">
+      <div class="icon"></div>
+      <h3>CANVA COLLECTION 04</h3>
+      <p>Digital presentation.</p>
+    </a>
+
+
+    <a class="card"
+       href="https://canva.link/eviglip2jai7rkw"
+       target="_blank"
+       rel="noopener">
+      <div class="icon"></div>
+      <h3>CANVA COLLECTION 05</h3>
+      <p>Digital publication.</p>
+    </a>
+
+
+    <a class="card"
+       href="https://canva.link/bmg0h6c1cb23ifj"
+       target="_blank"
+       rel="noopener">
+      <div class="icon"></div>
+      <h3>CANVA COLLECTION 06</h3>
+      <p>Digital artwork / presentation.</p>
+    </a>
+
+
+    <a class="card"
+       href="https://canva.link/190bzs6fnfnx3w3"
+       target="_blank"
+       rel="noopener">
+      <div class="icon"></div>
+      <h3>CANVA COLLECTION 07</h3>
+      <p>Digital collection.</p>
+    </a>
+
+
+    <a class="card"
+       href="https://canva.link/2if3qtl3iaib2i0"
+       target="_blank"
+       rel="noopener">
+      <div class="icon"></div>
+      <h3>CANVA COLLECTION 08</h3>
+      <p>Museum presentation.</p>
+    </a>
+
+
+    <a class="card"
+       href="https://canva.link/ss8eclm9hp9eagy"
+       target="_blank"
+       rel="noopener">
+      <div class="icon"></div>
+      <h3>CANVA COLLECTION 09</h3>
+      <p>Digital archive.</p>
+    </a>
+
+
+    <a class="card"
+       href="https://canva.link/rxz1fuqe1noilm4"
+       target="_blank"
+       rel="noopener">
+      <div class="icon"></div>
+      <h3>CANVA COLLECTION 10</h3>
+      <p>Digital collection.</p>
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     CERTIFICATES / GALLERY / ARCHIVE
+     ================================================== -->
+
+<section>
+
+  <div class="section-title">
+    <h2>Gallery &amp; Archives</h2>
+  </div>
+
+  <div class="grid">
+
+    <a class="card"
+       href="https://photos.app.goo.gl/3z4ZQHuvkxCMPooB6"
+       target="_blank"
+       rel="noopener">
+
+      <div class="icon"></div>
+      <h3>PHOTO ARCHIVE I</h3>
+      <p>Google Photos collection.</p>
+
+    </a>
+
+
+    <a class="card"
+       href="https://photos.app.goo.gl/6tTNSAjKrMZGoqGWA"
+       target="_blank"
+       rel="noopener">
+
+      <div class="icon"></div>
+      <h3>PHOTO ARCHIVE II</h3>
+      <p>Google Photos collection.</p>
+
+    </a>
+
+
+    <!-- FUTURE CERTIFICATE / D-GALLERY URLS -->
+    <!-- ADD THEM HERE -->
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     ORTHODOX / CULTURAL HERITAGE
+     ================================================== -->
+
+<section>
+
+  <div class="section-title">
+    <h2>Cultural &amp; Spiritual Heritage</h2>
+  </div>
+
+  <div class="grid">
+
+    <a class="card"
+       href="https://pravoslavnihramovi.netlify.app/"
+       target="_blank"
+       rel="noopener">
+
+      <div class="icon"></div>
+      <h3>ORTHODOX CHURCHES</h3>
+      <p>Churches and Orthodox heritage resources.</p>
+
+    </a>
+
+
+    <!-- FUTURE CALENDAR URL -->
+    <!-- ADD THE MAIN CALENDAR PROJECT HERE -->
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     EVENTS
+     ================================================== -->
+
+<section>
+
+  <div class="section-title">
+    <h2>◆ Events</h2>
+  </div>
+
+  <div class="grid events">
+
+    <a class="card"
+       href="https://facebook.com/events/s/draconis-wc-d-___/1430619005742853/"
+       target="_blank"
+       rel="noopener">
+
+      <div class="icon"></div>
+      <h3>DRACONIS WC D</h3>
+      <p>Facebook event.</p>
+
+    </a>
+
+
+    <a class="card"
+       href="https://facebook.com/events/s/la-conoscenza-e-la-vitaknowled/996337890151623/"
+       target="_blank"
+       rel="noopener">
+
+      <div class="icon"></div>
+      <h3>LA CONOSCENZA E LA VITA</h3>
+      <p>Facebook event.</p>
+
+    </a>
+
+
+    <a class="card"
+       href="https://facebook.com/events/s/la-conoscenza-e-la-vitaknowled/1093127166466113/"
+       target="_blank"
+       rel="noopener">
+
+      <div class="icon"></div>
+      <h3>LA CONOSCENZA E LA VITA</h3>
+      <p>Facebook event.</p>
+
+    </a>
+
+
+    <a class="card"
+       href="https://facebook.com/events/s/la-conoscenza-e-la-vitaknowled/1112621077777798/"
+       target="_blank"
+       rel="noopener">
+
+      <div class="icon"></div>
+      <h3>LA CONOSCENZA E LA VITA</h3>
+      <p>Facebook event.</p>
+
+    </a>
+
+
+    <a class="card"
+       href="https://facebook.com/events/s/qr-collection/2336787130457937/"
+       target="_blank"
+       rel="noopener">
+
+      <div class="icon"></div>
+      <h3>QR COLLECTION</h3>
+      <p>Facebook event.</p>
+
+    </a>
+
+
+    <a class="card"
+       href="https://facebook.com/events/s/%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%81%D0%BB%D0%B0%D0%B2%D0%B5%D0%BD-%D0%B2%D0%B5%D1%80%D1%81%D0%BA%D0%B8-%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80ort/1397235971908100/"
+       target="_blank"
+       rel="noopener">
+
+      <div class="icon"></div>
+      <h3>ПРАВОСЛАВЕН ВЕРСКИ КАЛЕНДАР</h3>
+      <p>Facebook event.</p>
+
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     PAYMENT / SUPPORT
+     ================================================== -->
+
+<section>
+
+  <div class="section-title">
+    <h2>Payment &amp; Support</h2>
+  </div>
+
+  <div class="grid">
+
+    <a class="card payment"
+       href="https://paymentartpro.netlify.app/"
+       target="_blank"
+       rel="noopener">
+
+      <div class="icon">💳</div>
+      <h3>PAYMENT ART PRO</h3>
+      <p>Payment platform.</p>
+
+    </a>
+
+
+    <a class="card payment"
+       href="https://buy.stripe.com/fZu3cwa9ObZ03X70qXcjT0c"
+       target="_blank"
+       rel="noopener">
+
+      <div class="icon">◆</div>
+      <h3>STRIPE PAYMENT 01</h3>
+      <p>Secure Stripe payment link.</p>
+
+    </a>
+
+
+    <a class="card payment"
+       href="https://buy.stripe.com/bJe3cwchW4wy9hr0qXcjT0b"
+       target="_blank"
+       rel="noopener">
+
+      <div class="icon"></div>
+      <h3>STRIPE PAYMENT 02</h3>
+      <p>Secure Stripe payment link.</p>
+
+    </a>
+
+
+    <a class="card payment"
+       href="https://wise.com/pay/me/nikolchem8"
+       target="_blank"
+       rel="noopener">
+
+      <div class="icon">W</div>
+      <h3>WISE PAYMENT</h3>
+      <p>Wise payment / support link.</p>
+
+    </a>
+
+
+    <!-- ==================================================
+         FUTURE PAYMENT METHODS
+         ==================================================
+
+         SKRILL:
+         ADD PUBLIC PAYMENT URL HERE
+
+         PAYPAL:
+         ADD PUBLIC PAYMENT URL HERE
+
+    ================================================== -->
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     FUTURE PROJECTS
+     ================================================== -->
+
+<section>
+
+  <div class="section-title">
+    <h2>Future Expansion</h2>
+  </div>
+
+  <div class="future">
+
+    <p>
+      This platform is intentionally prepared for continuous expansion.
+      New ART &amp; BOOKS projects, galleries, books, certificates,
+      calendars, payment methods, collections, events and digital
+      resources can be added here without redesigning the entire Hub.
+    </p>
+
+    <br>
+
+    <p class="footer-gold">
+      ADD NEW URLS → ADD NEW CARD → SAVE → DEPLOY
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     FOOTER
+     ================================================== -->
+
+<footer>
+
+  <div>
+      ART &amp; BOOKS 
+  </div>
+
+  <div>
+    MUSEUM PRO PLATFORM
+  </div>
+
+  <div>
+    <span class="footer-gold">
+      Art • Books • Knowledge • Heritage
+    </span>
+  </div>
+
+</footer>
+
+</div>
+
+<!-- =========================================================
+       PRO — MEDIA / MUSEUM EXTENSION
+     Add this section before </body>
+========================================================= -->
+
+<section id="pro-media">
+
+  <div class="title">
+    <span>ALT3 PRO</span>
+    <h2>DIGITAL MUSEUM MEDIA VAULT</h2>
+    <p>ART • BOOKS • CERTIFICATES • HUMANITARIAN • QR COLLECTION</p>
+  </div>
+
+  <!-- ================= CERTIFICATES ================= -->
+
+  <section class="block">
+    <h3>CERTIFICATES VAULT</h3>
+
+    <div class="gallery">
+
+      <figure>
+        <img src="images/certificate-01.jpg"
+             alt="Certificate 01"
+             onclick="alt3OpenImage(this.src)">
+        <figcaption>CERTIFICATE 01</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/certificate-02.jpg"
+             alt="Certificate 02"
+             onclick="alt3OpenImage(this.src)">
+        <figcaption>CERTIFICATE 02</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/certificate-03.jpg"
+             alt="Certificate 03"
+             onclick="alt3OpenImage(this.src)">
+        <figcaption>CERTIFICATE 03</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/certificate-04.jpg"
+             alt="Certificate 04"
+             onclick="alt3OpenImage(this.src)">
+        <figcaption>CERTIFICATE 04</figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+
+  <!-- ================= HUMANITARIAN ================= -->
+
+  <section class="block humanitarian">
+    <h3>❤️ HUMANITARIAN MEDIA</h3>
+
+    <div class="feature">
+
+      <img src="images/humanitarian-main.jpg"
+           alt="Humanitarian"
+           onclick="OpenImage(this.src)">
+
+      <div class="text">
+        <h4>HUMANITARIAN COLLECTION</h4>
+        <p>
+          Digital art, books, certificates and humanitarian
+          projects presented through the ART & BOOKS HUB.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= VIDEO ================= -->
+
+  <section class="block">
+    <h3>🎥 VIDEO MUSEUM</h3>
+
+    <div class="video-grid">
+
+      <video controls playsinline preload="metadata">
+        <source src="videos/museum-01.mp4" type="video/mp4">
+      </video>
+
+      <video controls playsinline preload="metadata">
+        <source src="videos/museum-02.mp4" type="video/mp4">
+      </video>
+
+      <video controls playsinline preload="metadata">
+        <source src="videos/humanitarian-01.mp4" type="video/mp4">
+      </video>
+
+    </div>
+  </section>
+
+
+  <!-- ================= PHOTO STREAM ================= -->
+
+  <section class="alt3-block">
+    <h3>🖼 PHOTO STREAM</h3>
+
+    <div class="alt3-photo-stream">
+
+      <img src="images/photo-01.jpg"
+           onclick="alt3OpenImage(this.src)">
+
+      <img src="images/photo-02.jpg"
+           onclick="alt3OpenImage(this.src)">
+
+      <img src="images/photo-03.jpg"
+           onclick="alt3OpenImage(this.src)">
+
+      <img src="images/photo-04.jpg"
+           onclick="alt3OpenImage(this.src)">
+
+      <img src="images/photo-05.jpg"
+           onclick="alt3OpenImage(this.src)">
+
+      <img src="images/photo-06.jpg"
+           onclick="alt3OpenImage(this.src)">
+
+    </div>
+  </section>
+
+
+  <!-- ================= PLEXIGLASS OBJECT ================= -->
+
+  <section class="alt3-block object-vault">
+
+    <h3>✝ PLEXIGLASS ART OBJECT</h3>
+
+    <div class="object-card">
+
+      <div class="object-images">
+
+        <div>
+          <img src="images/plexiglass-front.jpg"
+               alt="Plexiglass front"
+               onclick="alt3OpenImage(this.src)">
+          <small>FRONT • BOGORODICA</small>
+        </div>
+
+        <div>
+          <img src="images/plexiglass-back-qr.jpg"
+               alt="Plexiglass back QR"
+               onclick="alt3OpenImage(this.src)">
+          <small>BACK • QR CODE</small>
+        </div>
+
+      </div>
+
+      <h4>
+        BOGORODICA — DIGITAL ART OBJECT
+      </h4>
+
+      <p>
+        Plexiglass 3 mm • 5.2 × 4.8 cm •
+        double-sided print
+      </p>
+
+      <p>
+        Connected with:
+        <strong>Знаење и живот /
+        La Conoscenza e La Vita</strong>
+      </p>
+
+      <div class="price-box">
+        <span>LIMITED OBJECT</span>
+        <strong>20–25 €</strong>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= QR COLLECTION ================= -->
+
+  <section class="alt3-block qr-vault">
+
+    <h3>▣ QR DIGITAL COLLECTION</h3>
+
+    <div class="qr-grid">
+
+      <a href="https://canva.link/tc3g4iao373o8gw"
+         target="_blank">
+        <div class="qr-item">
+          <div id="qr1"></div>
+          <span>QR 01</span>
+        </div>
+      </a>
+
+      <a href="https://canva.link/v3dz9qn4xmz0hjh"
+         target="_blank">
+        <div class="qr-item">
+          <div id="qr2"></div>
+          <span>QR 02</span>
+        </div>
+      </a>
+
+      <a href="https://canva.link/zfijb7mcon1rfq0"
+         target="_blank">
+        <div class="qr-item">
+          <div id="qr3"></div>
+          <span>QR 03</span>
+        </div>
+      </a>
+
+      <a href="https://monasteryworldmap.com/en/north-macedonia?utm_source=chatgpt.com"
+         target="_blank">
+        <div class="qr-item">
+          <div id="qr4"></div>
+          <span>MONASTERY MAP</span>
+        </div>
+      </a>
+
+      <a href="https://canva.link/8kkqvrttql97cx3"
+         target="_blank">
+        <div class="qr-item">
+          <div id="qr5"></div>
+          <span>QR 05</span>
+        </div>
+      </a>
+
+      <a href="https://canva.link/8xv1oat2aprykm8"
+         target="_blank">
+        <div class="qr-item">
+          <div id="qr6"></div>
+          <span>QR 06</span>
+        </div>
+      </a>
+
+      <a href="https://canva.link/0a2uhtz2j520705"
+         target="_blank">
+        <div class="qr-item">
+          <div id="qr7"></div>
+          <span>QR 07</span>
+        </div>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= BOOK ================= -->
+
+  <section class="block book-vault">
+
+    <h3>📖 KNOWLEDGE & LIFE</h3>
+
+    <div class="book-display">
+
+      <img src="images/knowledge-life-cover.jpg"
+           alt="Знаење и живот"
+           onclick="OpenImage(this.src)">
+
+      <div>
+
+        <h4>
+          ЗНАЕЊЕ И ЖИВОТ
+        </h4>
+
+        <h4>
+          LA CONOSCENZA E LA VITA
+        </h4>
+
+        <p>
+          Nikola / Nikolche Manasiev
+        </p>
+
+        <p>
+          500 pages • illustrated
+        </p>
+
+        <p>
+          ART & BOOKS DIGITAL COLLECTION
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= END ================= -->
+
+  <div class="end">
+    <span>✦</span>
+    <p>ART & BOOKS HUB</p>
+    <p>PRO DIGITAL MUSEUM</p>
+    <span>✦</span>
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     FULLSCREEN IMAGE VIEWER
+========================================================= -->
+
+<div id="Viewer" onclick="CloseImage()">
+  <img id="ViewerImg" src="" alt="">
+</div>
+
+
+<!-- =========================================================
+     QR LIBRARY
+========================================================= -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+
+new QRCode(document.getElementById("qr1"), {
+  text: "https://canva.link/tc3g4iao373o8gw",
+  width: 110,
+  height: 110
+});
+
+new QRCode(document.getElementById("qr2"), {
+  text: "https://canva.link/v3dz9qn4xmz0hjh",
+  width: 110,
+  height: 110
+});
+
+new QRCode(document.getElementById("qr3"), {
+  text: "https://canva.link/zfijb7mcon1rfq0",
+  width: 110,
+  height: 110
+});
+
+new QRCode(document.getElementById("qr4"), {
+  text: "https://monasteryworldmap.com/en/north-macedonia?utm_source=chatgpt.com",
+  width: 110,
+  height: 110
+});
+
+new QRCode(document.getElementById("qr5"), {
+  text: "https://canva.link/8kkqvrttql97cx3",
+  width: 110,
+  height: 110
+});
+
+new QRCode(document.getElementById("qr6"), {
+  text: "https://canva.link/8xv1oat2aprykm8",
+  width: 110,
+  height: 110
+});
+
+new QRCode(document.getElementById("qr7"), {
+  text: "https://canva.link/0a2uhtz2j520705",
+  width: 110,
+  height: 110
+});
+
+
+function OpenImage(src) {
+  document.getElementById("ViewerImg").src = src;
+  document.getElementById("Viewer").style.display = "flex";
+}
+
+function CloseImage() {
+  document.getElementById("Viewer").style.display = "none";
+}
+
+</script>
+
+
+<!-- =========================================================
+      PRO CSS
+========================================================= -->
+
+<style>
+
+#pro-media {
+  width: 100%;
+  box-sizing: border-box;
+  background:
+    radial-gradient(circle at top,
+      #272000 0%,
+      #090909 35%,
+      #000 100%);
+  color: #fff;
+  padding: 25px 10px 50px;
+  margin-top: 25px;
+}
+
+.title {
+  text-align: center;
+  border-top: 2px solid #ffd400;
+  border-bottom: 2px solid #ffd400;
+  padding: 18px 8px;
+  margin-bottom: 22px;
+}
+
+.title span {
+  color: #ffd400;
+  font-size: 12px;
+  letter-spacing: 4px;
+}
+
+.title h2 {
+  color: #ffd400;
+  font-size: 20px;
+  margin: 8px 0;
+}
+
+.title p {
+  font-size: 10px;
+  opacity: .7;
+}
+
+.block {
+  max-width: 900px;
+  margin: 0 auto 30px;
+  padding: 12px;
+  border: 1px solid #665400;
+  border-radius: 10px;
+  background: rgba(15,15,15,.94);
+}
+
+.block h3 {
+  color: #ffd400;
+  text-align: center;
+  font-size: 15px;
+  margin: 5px 0 15px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.gallery figure {
+  margin: 0;
+  background: #050505;
+  border: 1px solid #ffd400;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.gallery figcaption {
+  color: #ffd400;
+  text-align: center;
+  font-size: 9px;
+  padding: 5px;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.feature img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border: 1px solid #ffd400;
+}
+
+.text {
+  text-align: center;
+}
+
+.text h4 {
+  color: #ffd400;
+}
+
+.text p {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.video-grid video {
+  width: 100%;
+  background: #000;
+  border: 1px solid #ffd400;
+  border-radius: 6px;
+}
+
+.photo-stream {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 7px;
+}
+
+.photo-stream img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border: 1px solid #ffd400;
+  border-radius: 5px;
+}
+
+.object-card {
+  text-align: center;
+}
+
+.object-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.object-images img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  background: #000;
+  border: 1px solid #ffd400;
+}
+
+.object-images small {
+  display: block;
+  color: #ffd400;
+  font-size: 8px;
+  margin-top: 4px;
+}
+
+.object-card h4 {
+  color: #ffd400;
+  margin-bottom: 5px;
+}
+
+.object-card p {
+  font-size: 11px;
+}
+
+.price-box {
+  margin: 15px auto 5px;
+  border: 1px solid #ffd400;
+  padding: 12px;
+  max-width: 200px;
+}
+
+.price-box span {
+  display: block;
+  color: #aaa;
+  font-size: 9px;
+}
+
+.price-box strong {
+  display: block;
+  color: #ffd400;
+  font-size: 22px;
+  margin-top: 4px;
+}
+
+.qr-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.qr-grid a {
+  text-decoration: none;
+}
+
+.qr-item {
+  background: #fff;
+  border: 2px solid #ffd400;
+  padding: 8px;
+  text-align: center;
+  border-radius: 6px;
+}
+
+.qr-item div {
+  display: flex;
+  justify-content: center;
+}
+
+.qr-item span {
+  display: block;
+  color: #111;
+  font-size: 9px;
+  font-weight: bold;
+  margin-top: 6px;
+}
+
+.book-display {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 15px;
+  align-items: center;
+}
+
+.book-display img {
+  width: 100%;
+  border: 1px solid #ffd400;
+}
+
+.book-display h4 {
+  color: #ffd400;
+  font-size: 13px;
+}
+
+.book-display p {
+  font-size: 10px;
+}
+
+.end {
+  text-align: center;
+  color: #ffd400;
+  padding: 20px;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+#Viewer {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  background: rgba(0,0,0,.95);
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+#Viewer img {
+  max-width: 95%;
+  max-height: 90%;
+  object-fit: contain;
+  border: 2px solid #ffd400;
+}
+
+@media (min-width: 700px) {
+
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .photo-stream {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .video-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .qr-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .feature {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+}
+
+</style>
+
+</body>
+</html>
