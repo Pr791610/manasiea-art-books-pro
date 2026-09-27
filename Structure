@@ -1,0 +1,32 @@
+ART& BOOKS HUB/
+│
+├── index.html
+│
+├── images/
+│   ├── cert01.jpg
+│   ├── cert02.jpg
+│   ├── bogorodica-front.jpg
+│   ├── bogorodica-back.jpg
+│   ├── humanitarian.jpg
+│   ├── book.jpg
+│   └── photo01.jpg
+│
+└── videos/
+    ├── video01.mp4
+    ├── video02.mp4
+    └── video03.mp4
+
+
+ART&BOOKS HUB
+                    │
+             ┌──────┴──────┐
+             │             │
+          images         videos
+             │             │
+             └──────┬──────┘
+                    │
+                index.html
+                    │
+                 GitHub
+                    │
+                 Netlify
